@@ -5,7 +5,7 @@
     tools:context="controller.DetailActivity">
     <item
         android:id="@+id/action_share"
-        android:icon="drawable/abc_ic_menu_share_mtrl_alpha"
+        android:icon="@drawable/ic_share_foreground"
         android:title="Share"
         app:showAsAction="always"/>
 
