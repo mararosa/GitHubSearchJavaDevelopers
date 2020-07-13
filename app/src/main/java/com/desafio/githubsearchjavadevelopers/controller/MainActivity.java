@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                     recyclerView.smoothScrollToPosition(0);
                     swipeContainer.setRefreshing(false);
                     pd.hide();
-
                 }
 
                 @Override
@@ -94,6 +93,4 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.smoothScrollToPosition(0);
         loadJSON();
     }
-
-
 }
