@@ -1,4 +1,4 @@
-package com.desafio.githubsearchjavadevelopers;
+package com.desafio.githubsearchjavadevelopers.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
