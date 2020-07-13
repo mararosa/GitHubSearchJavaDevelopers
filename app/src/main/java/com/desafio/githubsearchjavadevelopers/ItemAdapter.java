@@ -1,13 +1,17 @@
 package com.desafio.githubsearchjavadevelopers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.desafio.githubsearchjavadevelopers.controller.DetailActivity;
 import com.desafio.githubsearchjavadevelopers.model.Item;
 import com.squareup.picasso.Picasso;
 
@@ -38,11 +42,38 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 .load(items.get(i).getAvatarUrl())
                 .placeholder(R.drawable.load)
                 .into(viewHolder.imageView);
-
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
+    }
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView title, gitHubLink;
+        private ImageView imageView;
+
+        public ViewHolder(@NonNull View view) {
+            super(view);
+            title = view.findViewById(R.id.row_username_tv);
+            gitHubLink = view.findViewById(R.id.row_githubLink_title_tv);
+            imageView = view.findViewById(R.id.row_cover_imageView);
+
+            //on item click
+            itemView.setOnClickListener((new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION) {
+                        Item clickedDataItem = items.get(position);
+                        Intent intent = new Intent(context, DetailActivity.class);
+                        intent.putExtra("login", items.get(position).getLogin());
+                        intent.putExtra("html_url", items.get(position).getHtmlUrl());
+                        intent.putExtra("avatar_url", items.get(position).getAvatarUrl());
+                    }
+                }
+            }));
+        }
     }
 }
