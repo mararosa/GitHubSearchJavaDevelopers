@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.desafio.githubsearchjavadevelopers.model.Item;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,6 +34,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         viewHolder.title.setText(items.get(i).getLogin());
         viewHolder.githubLink.setText(items.get(i).getHtmlUrl());
 
+        Picasso.with(context)
+                .load(items.get(i).getAvatarUrl())
+                .placeholder(R.drawable.load)
+                .into(viewHolder.imageView);
 
     }
 
