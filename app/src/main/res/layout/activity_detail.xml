@@ -51,6 +51,4 @@
         android:textSize="20sp"
         android:layout_below="@id/detail_githubLink_tv"/>
 
-
-
 </RelativeLayout>
