@@ -35,14 +35,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder viewHolder, int position) {
-        viewHolder.title.setText(items.get(i).getLogin());
-        viewHolder.gitHubLink.setText(items.get(i).getHtmlUrl());
+    public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
+        holder.title.setText(items.get(position).getLogin());
+        holder.gitHubLink.setText(items.get(position).getHtmlUrl());
 
         Picasso.with(context)
-                .load(items.get(i).getAvatarUrl())
+                .load(items.get(position).getAvatarUrl())
                 .placeholder(R.drawable.load)
-                .into(viewHolder.imageView);
+                .into(holder.imageView);
     }
 
     @Override
