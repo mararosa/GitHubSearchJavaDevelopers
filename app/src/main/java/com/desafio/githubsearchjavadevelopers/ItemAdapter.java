@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,9 +35,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder viewHolder, int position) {
         viewHolder.title.setText(items.get(i).getLogin());
-        viewHolder.githubLink.setText(items.get(i).getHtmlUrl());
+        viewHolder.gitHubLink.setText(items.get(i).getHtmlUrl());
 
         Picasso.with(context)
                 .load(items.get(i).getAvatarUrl())
@@ -71,6 +72,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         intent.putExtra("login", items.get(position).getLogin());
                         intent.putExtra("html_url", items.get(position).getHtmlUrl());
                         intent.putExtra("avatar_url", items.get(position).getAvatarUrl());
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        Toast.makeText(v.getContext(), "You clicked " + clickedDataItem.getLogin(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }));
