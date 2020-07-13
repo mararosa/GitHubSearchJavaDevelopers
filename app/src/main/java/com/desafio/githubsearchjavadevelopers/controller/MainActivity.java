@@ -78,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
                     pd.hide();
                 }
             });
+        } catch (Exception e) {
+            Log.d("Error", e.getMessage());
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
