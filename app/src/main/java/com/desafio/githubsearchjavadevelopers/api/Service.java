@@ -6,6 +6,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface Service {
-    @GET("/search/repositories?q=language:Java&sort=forks&order=desc")
+    @GET("/search/users?q=language:Java+location:Brasil")
     Call<ItemResponse> getItems();
 }
